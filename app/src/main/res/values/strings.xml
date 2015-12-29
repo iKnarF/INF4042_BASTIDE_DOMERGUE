@@ -7,4 +7,5 @@
     <string name="nicknametext">Enter your nickname:</string>
     <string name="nickname">""</string>
     <string name="editText" />
+    <string name="toastEmptyNickname">You need a nickname</string>
 </resources>

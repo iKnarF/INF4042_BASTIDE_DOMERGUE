@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.SearchView;
+import android.widget.Toast;
 
 public class ScrollingActivity extends MainActivity {
 
@@ -17,30 +17,24 @@ public class ScrollingActivity extends MainActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
-        System.out.print("SCROLLING ACTIVITY");
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Récupération du pseudo via l'intent
         Intent intent = getIntent();
-        final SearchView searchView = (SearchView) findViewById(R.id.idSearchView);
-
         String EXTRA_NICKNAME = (String) getIntent().getSerializableExtra("user_nickname");
-        //double nickname = Double.parseDouble(EXTRA_NICKNAME.trim());
 
         //Si l'utilisateur a bien renseigné un pseudo, on change le titre et on affiche les paramètres récupérés sur le site
-        if (intent!=null){
-            System.out.print("Intent != NULL");
+        if (EXTRA_NICKNAME.length()> 1){
+            //R.string.title_activity_main nic = title_activity_main;
             toolbar.setTitle(EXTRA_NICKNAME.toString());
-            //toolbar.setTitle(intent.getStringExtra(user_nickname));
         }
-        else {
-            toolbar.setTitle("ESSAI2 VIDE");
-            toolbar.setSubtitle("VIDE");
-            System.out.print("Intent == NULL");
+        //Affichage d'un Toast si l'utilisateur n'a pas rentré de pseudo
+        else{
+            Toast.makeText(getApplicationContext(),getString(R.string.toastEmptyNickname),Toast.LENGTH_LONG).show();
         }
-        toolbar.setSubtitle("VIDE");
-
+        //Permet d'écouter le bouton qui permet de revenir à la première fenètre de selection du pseudo
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,28 +44,17 @@ public class ScrollingActivity extends MainActivity {
             }
         });
 
-        /*fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });*/
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_scrolling, menu);
-        System.out.print("SCROLLING ACTIVITY optionsMenu");
-
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        System.out.print("SCROLLING ACTIVITY onOptionsItemSelected");
-
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.

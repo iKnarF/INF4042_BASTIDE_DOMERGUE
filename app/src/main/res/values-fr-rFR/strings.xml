@@ -6,5 +6,7 @@
     <string name="title_activity_main">PlanetSide 2 Stats</string>
     <string name="welcome">Bienvenue</string>
     <string name="nicknametext">Entrez votre pseudo:</string>
+    <string name="toastEmptyNickname">Vous devez rentrer un pseudo</string>
+
 
 </resources>
