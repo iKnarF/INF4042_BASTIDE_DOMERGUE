@@ -23,23 +23,23 @@ public class ScrollingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         SearchView searchView = (SearchView) findViewById(R.id.idSearchView);
+
         //Si l'utilisateur a bien renseigné un pseudo, on change le titre et on affiche les paramètres récupérés sur le site
         if (intent!=null){
             System.out.print("Intent != NULL");
             toolbar.setTitle("ESSAI2");
-            toolbar.setSubtitle(intent.getStringExtra(EXTRA_NICKNAME));
+            toolbar.setTitle(intent.getStringExtra(EXTRA_NICKNAME));
         }
         else {
             toolbar.setTitle("ESSAI2 VIDE");
             toolbar.setSubtitle("VIDE");
-
             System.out.print("Intent == NULL");
         }
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ScrollingActivity.this,MainActivity.class);
+                Intent intent = new Intent(ScrollingActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

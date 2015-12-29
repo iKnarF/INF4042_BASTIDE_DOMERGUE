@@ -1,2 +1,0 @@
-# applicationMobile
-première partie

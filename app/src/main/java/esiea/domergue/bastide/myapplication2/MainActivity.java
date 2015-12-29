@@ -34,10 +34,10 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Création d'un intent pour changer d'activité et transmettre le pseudo rentré
                 //EXTRA_NICKNAME = searchView.getTransitionName();
                 Intent intent = new Intent(MainActivity.this, ScrollingActivity.class);
                 intent.putExtra(EXTRA_NICKNAME, searchManager.getSearchableInfo(getComponentName()));
-                toolbar.setTitle("ESSAI");
                 startActivity(intent);
             }
         });

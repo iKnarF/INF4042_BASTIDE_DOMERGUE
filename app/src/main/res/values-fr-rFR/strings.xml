@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">PlanetSide 2</string>
-    <string name="large_text">"Profil.\n\n""</string>
+    <string name="large_text">"Profil:\n\n""</string>
     <string name="action_settings">Paramètres</string>
     <string name="title_activity_main">PlanetSide 2 Stats</string>
+    <string name="welcome">Bienvenue</string>
+    <string name="nicknametext">Entrez votre pseudo:</string>
 
 
 </resources>
