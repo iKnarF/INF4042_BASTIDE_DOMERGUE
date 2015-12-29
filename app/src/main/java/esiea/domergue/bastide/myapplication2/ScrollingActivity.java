@@ -3,38 +3,44 @@ package esiea.domergue.bastide.myapplication2;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.SearchView;
 
-public class ScrollingActivity extends AppCompatActivity {
-    final String EXTRA_NICKNAME = "user_nickname";
+public class ScrollingActivity extends MainActivity {
+
+    //final String EXTRA_NICKNAME = "user_nickname";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scrolling);
+        System.out.print("SCROLLING ACTIVITY");
 
         final Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         Intent intent = getIntent();
-        SearchView searchView = (SearchView) findViewById(R.id.idSearchView);
+        final SearchView searchView = (SearchView) findViewById(R.id.idSearchView);
+
+        String EXTRA_NICKNAME = (String) getIntent().getSerializableExtra("user_nickname");
+        //double nickname = Double.parseDouble(EXTRA_NICKNAME.trim());
 
         //Si l'utilisateur a bien renseigné un pseudo, on change le titre et on affiche les paramètres récupérés sur le site
         if (intent!=null){
             System.out.print("Intent != NULL");
-            toolbar.setTitle("ESSAI2");
-            toolbar.setTitle(intent.getStringExtra(EXTRA_NICKNAME));
+            toolbar.setTitle(EXTRA_NICKNAME.toString());
+            //toolbar.setTitle(intent.getStringExtra(user_nickname));
         }
         else {
             toolbar.setTitle("ESSAI2 VIDE");
             toolbar.setSubtitle("VIDE");
             System.out.print("Intent == NULL");
         }
+        toolbar.setSubtitle("VIDE");
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,11 +63,15 @@ public class ScrollingActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_scrolling, menu);
+        System.out.print("SCROLLING ACTIVITY optionsMenu");
+
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        System.out.print("SCROLLING ACTIVITY onOptionsItemSelected");
+
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.

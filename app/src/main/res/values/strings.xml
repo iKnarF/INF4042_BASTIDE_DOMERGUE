@@ -5,4 +5,6 @@
     <string name="title_activity_main">PlanetSide 2 Stats</string>
     <string name="welcome">Welcome</string>
     <string name="nicknametext">Enter your nickname:</string>
+    <string name="nickname">""</string>
+    <string name="editText" />
 </resources>
