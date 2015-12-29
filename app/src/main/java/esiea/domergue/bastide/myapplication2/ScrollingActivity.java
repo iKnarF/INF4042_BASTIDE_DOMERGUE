@@ -26,13 +26,14 @@ public class ScrollingActivity extends MainActivity {
         String EXTRA_NICKNAME = (String) getIntent().getSerializableExtra("user_nickname");
 
         //Si l'utilisateur a bien renseigné un pseudo, on change le titre et on affiche les paramètres récupérés sur le site
-        if (EXTRA_NICKNAME.length()> 1){
-            //R.string.title_activity_main nic = title_activity_main;
+        if (EXTRA_NICKNAME.length()>= 1){
             toolbar.setTitle(EXTRA_NICKNAME.toString());
         }
-        //Affichage d'un Toast si l'utilisateur n'a pas rentré de pseudo
+        //Affichage d'un Toast si l'utilisateur n'a pas rentré de pseudo et retour à la première fenètre de la saisie
         else{
             Toast.makeText(getApplicationContext(),getString(R.string.toastEmptyNickname),Toast.LENGTH_LONG).show();
+            intent = new Intent(ScrollingActivity.this, MainActivity.class);
+            startActivity(intent);
         }
         //Permet d'écouter le bouton qui permet de revenir à la première fenètre de selection du pseudo
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
