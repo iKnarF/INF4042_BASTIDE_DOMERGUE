@@ -151,7 +151,7 @@
         <TableRow>
 
             <TextView
-                android:text="Max tués en une vie: "
+                android:text="@string/oneLifeKills"
                 android:textStyle="bold" />
 
             <TextView

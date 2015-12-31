@@ -21,5 +21,6 @@
     <string name="total_certs">Certs totaux:</string>
     <string name="kills_stats_title">Statistiques victimes</string>
     <string name="total_killed">Tués total:</string>
+    <string name="oneLifeKills">Max tués en une vie:</string>
 
 </resources>

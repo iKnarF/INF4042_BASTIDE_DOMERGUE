@@ -20,6 +20,7 @@
     <string name="time_played">Temps de jeu:</string>
     <string name="available_certs">Available certs:</string>
     <string name="total_certs">Total certs earned:</string>
-    <string name="kills_stats_title">Statistiques victimes</string>
+    <string name="kills_stats_title">Killed stats</string>
     <string name="total_killed">Total killed:</string>
+    <string name="oneLifeKills">One Life Killed:</string>
 </resources>
