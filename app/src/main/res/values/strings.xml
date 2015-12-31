@@ -8,4 +8,13 @@
     <string name="nickname">""</string>
     <string name="editText" />
     <string name="toastEmptyNickname">You need a nickname</string>
+    <string name="faction">Faction:</string>
+    <string name="infochara">Informations sur le personnage</string>
+    <string name="vanu">Souveraineté Vanu</string>
+    <string name="conglo">Nouveau Conglomérat</string>
+    <string name="terran">République Terrane</string>
+    <string name="nanite">Nanite Systems</string>
+    <string name="creation_date">Date de création:</string>
+    <string name="last_login">Dernière connexion:</string>
+    <string name="br">Battle Rank:</string>
 </resources>

@@ -6,7 +6,15 @@
     <string name="title_activity_main">PlanetSide 2 Stats</string>
     <string name="welcome">Bienvenue</string>
     <string name="nicknametext">Entrez votre pseudo:</string>
-    <string name="toastEmptyNickname">Vous devez rentrer un pseudo</string>
+    <string name="toastEmptyNickname">Vous devez entrer un pseudo</string>
+    <string name="faction">Faction:</string>
+    <string name="infochara">Informations sur le personnage</string>
+    <string name="vanu">Souveraineté Vanu</string>
+    <string name="conglo">Nouveau Conglomérat</string>
+    <string name="terran">République Terrane</string>
+    <string name="nanite">Nanite Systems</string>
+    <string name="last_login">Dernière connexion:</string>
+    <string name="br">Battle Rank:</string>
 
 
 </resources>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,7 +7,71 @@
     tools:showIn="@layout/activity_scrolling" android:layout_width="match_parent"
     android:layout_height="match_parent" tools:context=".ScrollingActivity">
 
-    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_margin" android:text="@string/large_text" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/infochara"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"
+        android:id="@+id/textView3" />
 
-</android.support.v4.widget.NestedScrollView>
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3"
+        android:layout_alignRight="@+id/textView3"
+        android:layout_alignEnd="@+id/textView3"
+        android:layout_marginTop="70dp">
+
+        <TableRow>
+            <TextView
+                android:text="@string/faction"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="14dp"
+                android:id="@+id/faction" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/br"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="14dp"
+                android:id="@+id/battle_rank" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/creation_date"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
+                android:id="@+id/creation_date" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="@string/last_login"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
+                android:id="@+id/last_login" />
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:text="Temps de jeu: "
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginLeft="14dp"
+                android:layout_marginStart="14dp"
+                android:id="@+id/minutes_played" />
+        </TableRow>
+
+    </TableLayout>
+</RelativeLayout>
