@@ -26,6 +26,8 @@ import java.util.Date;
 
 public class ScrollingActivity extends MainActivity {
     public static final String CHAR_UPDATE = "esiea.domergue.bastide.myapplication2.char_update";
+    public static final String CHAR_KILLS = "esiea.domergue.bastide.myapplication2.char_kills";
+
     public static final String TAG = "SCROLLING_ACTIVITY";
     //final String EXTRA_NICKNAME = "user_nickname";
 
@@ -96,21 +98,43 @@ public class ScrollingActivity extends MainActivity {
 
     public class CharacUpdate extends BroadcastReceiver {
 
+        private JSONObject character;
+
         @Override
         public void onReceive(Context context, Intent intent) {
             Log.d(TAG, "character updates received");
-            JSONObject character = null;
             try {
-                character = getCharacterFromFile().getJSONArray("character_list").getJSONObject(0);
+                character = getCharacterFromFile("character.json").getJSONArray("character_list").getJSONObject(0);
                 printFaction(character);
                 printCreationDate(character);
                 printLastLogin(character);
                 printMinutesPlayed(character);
                 printBattleRank(character);
+                printCerts(character);
+                printKills(character);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
 
+        }
+
+        private void printKills(JSONObject character) throws JSONException {
+            //on doit fair une nouvelle requête JSON pour récupérer les kills
+            String characterId = character.getString("character_id");
+            IntentFilter intentFilter = new IntentFilter(CHAR_KILLS);
+            LocalBroadcastManager.getInstance(getApplicationContext()).registerReceiver(new CharacKillsUpdate(), intentFilter);
+            Intent intent = new Intent(getApplicationContext(), GetCharacterKillsService.class);
+            intent.putExtra("character_id", characterId);
+            startService(intent);
+        }
+
+        private void printCerts(JSONObject character) throws JSONException {
+            int certs = character.getJSONObject("certs").getInt("available_points");
+            TextView tv = (TextView) findViewById(R.id.certs);
+            tv.setText("" + certs);
+            certs = character.getJSONObject("certs").getInt("earned_points");
+            tv = (TextView) findViewById(R.id.certs_total);
+            tv.setText("" + certs);
         }
 
         private void printBattleRank(JSONObject character) throws JSONException {
@@ -164,9 +188,9 @@ public class ScrollingActivity extends MainActivity {
 
         }
 
-        public JSONObject getCharacterFromFile() {
+        public JSONObject getCharacterFromFile(String file) {
             try {
-                InputStream is = new FileInputStream(getCacheDir() + "/" + "character.json");
+                InputStream is = new FileInputStream(getCacheDir() + "/" + file);
                 byte[] buffer = new byte[is.available()];
                 is.read(buffer);
                 is.close();
@@ -180,6 +204,31 @@ public class ScrollingActivity extends MainActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
                 return new JSONObject();
+            }
+        }
+
+        private class CharacKillsUpdate extends BroadcastReceiver {
+
+            private JSONObject characters_stat_list;
+
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                Log.d(TAG, "character kills received");
+                try {
+                    characters_stat_list = getCharacterFromFile("character_kills.json").getJSONArray("characters_stat_list").getJSONObject(0);
+                    printTotalKills(characters_stat_list);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            private void printTotalKills(JSONObject characters_stat_list) throws JSONException {
+                String totalKills = characters_stat_list.getString("value_forever");
+                TextView tv = (TextView) findViewById(R.id.total_kills);
+                tv.setText(totalKills);
+                String oneLiveTotalKilled = characters_stat_list.getString("value_one_life_max");
+                tv = (TextView) findViewById(R.id.one_live_total_kills);
+                tv.setText(oneLiveTotalKilled);
             }
         }
     }

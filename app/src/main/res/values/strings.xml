@@ -9,12 +9,17 @@
     <string name="editText" />
     <string name="toastEmptyNickname">You need a nickname</string>
     <string name="faction">Faction:</string>
-    <string name="infochara">Informations sur le personnage</string>
-    <string name="vanu">Souveraineté Vanu</string>
-    <string name="conglo">Nouveau Conglomérat</string>
-    <string name="terran">République Terrane</string>
+    <string name="infochara">Character informations</string>
+    <string name="vanu">Vanu Sovereignity</string>
+    <string name="conglo">New Conglomerate</string>
+    <string name="terran">Terran Republic</string>
     <string name="nanite">Nanite Systems</string>
-    <string name="creation_date">Date de création:</string>
-    <string name="last_login">Dernière connexion:</string>
+    <string name="creation_date">Date of creation:</string>
+    <string name="last_login">Last Login:</string>
     <string name="br">Battle Rank:</string>
+    <string name="time_played">Temps de jeu:</string>
+    <string name="available_certs">Available certs:</string>
+    <string name="total_certs">Total certs earned:</string>
+    <string name="kills_stats_title">Statistiques victimes</string>
+    <string name="total_killed">Total killed:</string>
 </resources>

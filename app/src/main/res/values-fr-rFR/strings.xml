@@ -15,6 +15,11 @@
     <string name="nanite">Nanite Systems</string>
     <string name="last_login">Dernière connexion:</string>
     <string name="br">Battle Rank:</string>
-
+    <string name="creation_date">Date de création:</string>
+    <string name="time_played">Temps de jeu:</string>
+    <string name="available_certs">Certs disponibles:</string>
+    <string name="total_certs">Certs totaux:</string>
+    <string name="kills_stats_title">Statistiques victimes</string>
+    <string name="total_killed">Tués total:</string>
 
 </resources>
